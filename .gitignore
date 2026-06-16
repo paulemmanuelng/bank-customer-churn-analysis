@@ -1,0 +1,7 @@
+# The database is generated from the CSV (see README), so we don't commit it.
+*.db
+
+# Python / editor / OS noise
+__pycache__/
+.DS_Store
+.claude/
