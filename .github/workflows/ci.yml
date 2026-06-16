@@ -1,0 +1,47 @@
+name: Reproduce analysis
+
+# Rebuilds the database from the CSV, checks the data loaded, runs the
+# analysis, and regenerates the charts. A green check means the whole
+# project reproduces from scratch.
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build the database
+        run: |
+          sqlite3 churn.db < schema.sql
+          sqlite3 churn.db ".import --csv --skip 1 data/churn.csv customers"
+
+      - name: Check the data loaded (expect 10000 rows)
+        run: |
+          COUNT=$(sqlite3 churn.db "SELECT COUNT(*) FROM customers;")
+          echo "Rows loaded: $COUNT"
+          test "$COUNT" -eq 10000
+
+      - name: Run the analysis queries
+        run: sqlite3 -header -column churn.db < queries.sql
+
+      - name: Regenerate the charts
+        run: python make_charts.py
