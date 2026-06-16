@@ -11,10 +11,11 @@ to interrogate 10,000 customer records and Python to visualise the findings.
 
 **1 in 5 customers (20.4%) churned — but the loss is concentrated and fixable.**
 
-- 🚨 **A broken multi-product journey:** customers with 3 products churn at 86%,
-  and **every single customer with 4 products left (100%)**. The "sweet spot" is
-  2 products (just 7.6% churn). Something about selling beyond 2 products is
-  actively pushing people out — this needs an urgent audit.
+- 🚨 **A broken multi-product journey:** customers with 3 products churn at 83%,
+  and **every single customer with 4 products left (100%)** — an 86% churn rate
+  across all 3–4 product holders. The "sweet spot" is 2 products (just 7.6%
+  churn). Something about selling beyond 2 products is actively pushing people
+  out — this needs an urgent audit.
 - 📊 **The biggest volume of losses is elsewhere:** single-product customers
   (1,409 lost) and inactive members (1,302 lost) are where most churn actually
   happens. These are the segments to move first.
@@ -29,7 +30,7 @@ customers.
 
 | # | Action | Why | Expected reach |
 |---|--------|-----|----------------|
-| 1 | **Audit the 3–4 product journey now** | 86–100% churn signals mis-selling or a broken experience | ~280 customers, but near-total loss — a red flag |
+| 1 | **Audit the 3–4 product journey now** | 83–100% churn signals mis-selling or a broken experience | 326 holders (280 already lost) — small but near-total loss |
 | 2 | **Activate inactive + single-product customers** | Largest pools of churn; 2 products = lowest churn (7.6%), so nudging a second product helps | ~2,700 churned customers between them |
 | 3 | **Investigate Germany** | 2× the churn of other markets — pricing, fit, or competition? | ~814 churned customers |
 | 4 | **Targeted retention for age 50–59 (56% churn) and female customers (25% vs 16%)** | Sharp, specific risk groups | ~1,600 churned customers |
